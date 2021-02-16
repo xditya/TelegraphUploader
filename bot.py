@@ -75,7 +75,7 @@ async def uploader(event):
     downloaded_file_name = await BotzHub.download_media(pic, TMP_DOWNLOAD_DIRECTORY)
     if downloaded_file_name.endswith((".webp")):
         await ok.edit("`Oh! It's a sticker...\nLemme convert it!!`")
-        tmp = resize_image(downloaded_file_name)
+        resize_image(downloaded_file_name)
     try:
         media_urls = upload_file(downloaded_file_name)
     except exceptions.TelegraphException as exc:
@@ -84,8 +84,6 @@ async def uploader(event):
         return
     else:
         os.remove(downloaded_file_name)
-        if tmp:
-            os.remove(tmp)
         await ok.edit("Uploaded to [Telegraph](https://telegra.ph{})\n\n~ @BotzHub".format(media_urls[0]),
                     link_preview=True,
                     buttons=[
