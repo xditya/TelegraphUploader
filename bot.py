@@ -84,10 +84,10 @@ async def uploader(event):
         return
     else:
         os.remove(downloaded_file_name)
-        await ok.edit("Uploaded to [Telegraph](https://telegra.ph{})\n\n~ @BotzHub".format(media_urls[0]),
+        await ok.edit("Uploaded to [Telegraph](https://te.legra.ph{})\n\n~ @BotzHub".format(media_urls[0]),
                     link_preview=True,
                     buttons=[
-                        Button.url("Link To File", url=f"https://telegra.ph{media_urls[0]}")
+                        Button.url("Link To File", url=f"https://te.legra.ph{media_urls[0]}")
                     ])
 
 def resize_image(image):
